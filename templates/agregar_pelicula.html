@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Nueva pelicula</h2>
+<a href="{{ url_for('index') }}">Volver a Peliculas</a>
+<form method="POST" action="{{ url_for('agregar') }}">
+
+    <label>Nombre</label>
+    <input type="text" name="nombre" required>
+
+    <br>
+    <label>Fecha de Lanzamiento</label>
+    <input type="date" name="fecha_lanzamiento" required>
+
+    <br>
+    <label>Duracion(min)</label>
+    <input type="number" name="duracion" required>
+
+    <br>
+    <label>Género</label>
+    <select name="genero" required>
+        <option value="Accion">Accion</option>
+        <option value="Comedia">Comedia</option>
+        <option value="Drama">Drama</option>
+        <option value="Fantasia">Fantasia</option>
+        <option value="Terror">Terror</option>
+    </select>
+
+    <br>
+    <label>Director</label>
+    <input type="text" name="director" required>
+
+    <br>
+    <button type="submit">Agregar Pelicula</button>
+
+</form>
+
+{% endblock %}

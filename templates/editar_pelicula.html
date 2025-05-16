@@ -1,0 +1,37 @@
+{% extends "layout.html"%}
+{% block body %}
+<h2>Editar pelicula</h2>
+<a href="{{ url_for('index') }}">Volver a Peliculas</a>
+<form method="POST" action="{{ url_for('editar',id=pelicula.id) }}">
+
+    <label>Nombre</label>
+    <input type="text" name="nombre" value="{{ pelicula.nombre }}" required>
+
+    <br>
+    <label>Fecha de Lanzamiento</label>
+    <input type="date" name="fecha_lanzamiento" value="{{ pelicula.fecha_lanzamiento}}" required>
+
+    <br>
+    <label>Duracion(min)</label>
+    <input type="number" name="duracion" value="pelicula.duracion" required>
+
+    <br>
+    <label>Género</label>
+    <select name="genero" required>
+        <option value="Accion" {% if pelicula.genero =='Accion' %}selected{% endif %} >Accion</option>
+        <option value="Comedia" {% if pelicula.genero =='Comedia' %}selected{% endif %}>Comedia</option>
+        <option value="Drama" {% if pelicula.genero =='Drama' %}selected{% endif %}>Drama</option>
+        <option value="Fantasia" {% if pelicula.genero =='Fantasia' %}selected{% endif %}>Fantasia</option>
+        <option value="Terror" {% if pelicula.genero =='Terror' %}selected{% endif %}>Terror</option>
+    </select>
+
+    <br>
+    <label>Director</label>
+    <input type="text" name="director" value="pelicula.director" required>
+
+    <br>
+    <button type="submit">Agregar Pelicula</button>
+    
+</form>
+
+{% endblock %}

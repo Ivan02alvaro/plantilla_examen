@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Mis peliculas</h1>
+<a href="{{ url_for('agregar') }}">Agregar pelicula</a>
+
+{% if peliculas %}
+
+<table border>
+    <thead>
+        <th>Nombre </th>
+        <th>Fecha Lanzamiento </th>
+        <th>Duracion </th>
+        <th>Genero </th>
+        <th>Director </th>
+        <th>Acciones </th>
+
+    </thead>
+
+    <tbody>
+        {% for pelicula in peliculas %}
+
+        <tr>
+            <td>{{ pelicula.nombre }}</td>
+            <td>{{ pelicula.fecha_lanzamiento }}</td>
+            <td>{{ pelicula.duracion }}</td>
+            <td>{{ pelicula.genero }}</td>
+            <td>{{ pelicula.director}}</td>
+            <td>
+                <a href="{{ url_for('editar', id=pelicula.id) }}">Editar</a>
+                <a href="{{ url_for('eliminar', id=pelicula.id) }}">Eliminar</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h2>NO hay peliculas registradas</h2>
+
+{% endif %}
+
+{% endblock %}
