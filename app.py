@@ -14,6 +14,7 @@ with app.app_context():
     db.create_all()
 
 """
+
 Aquí puedes agregar las rutas de tu aplicación. Las rutas que deberás crear son:
 1. Ruta para mostrar una lista de registros.
 2. Ruta para agregar un registro.
